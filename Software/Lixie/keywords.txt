@@ -1,0 +1,28 @@
+###################################
+# Syntax Coloring Map for Volume
+###################################
+
+###################################
+# Datatypes (KEYWORD1)
+###################################
+
+###################################
+# Methods and Functions (KEYWORD2)
+###################################
+
+begin	KEYWORD2
+end	KEYWORD2
+alternatePin	KEYWORD2
+fadeOut	KEYWORD2
+throwError	KEYWORD2
+tone	KEYWORD2
+noTone	KEYWORD2
+millis	KEYWORD2
+micros	KEYWORD2
+delay	KEYWORD2
+delayMicroseconds	KEYWORD2
+setMasterVolume	KEYWORD2
+
+###################################
+# Constants (LITERAL1)
+###################################

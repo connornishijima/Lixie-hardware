@@ -1,0 +1,22 @@
+{
+  "name": "Volume",
+  "description": "Gives tone() functionality with 8-bit volume control with no extra parts!",
+  "keywords": "volume,control,tone",
+  "authors":
+  {
+    "name": "Connor Nishijima",
+    "email": "connornishijima@gmail.com"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/connornishijima/arduino-volume.git"
+  },
+  "version": "1.1.2",
+  "examples": "examples/*.ino",
+  "frameworks": "arduino",
+  "platforms":
+  [
+    "atmelavr"
+  ]
+}
