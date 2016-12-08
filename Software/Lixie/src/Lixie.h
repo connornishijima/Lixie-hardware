@@ -10,14 +10,22 @@
 #include "Arduino.h"
 #include "FastLED.h"
 
+#define write_string(input) write_string_f(input, sizeof(input)-1);
+
 class Lixie
 {
   public:
     Lixie();
     void begin();
 	void clear();
+
 	void write_int(float input);
 	void push_digit(byte number);
+	void write_digit(byte input, byte index);
+
+	void write_string_f(char* input, byte len);
+	void write_char(char input, byte index);
+
 	void show();
 	void print_binary();
 	

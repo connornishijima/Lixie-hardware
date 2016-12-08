@@ -191,6 +191,22 @@ void Lixie::write_int(float input){
   show();
 }
 
+void Lixie::write_digit(byte input, byte index){
+  uint16_t start = (index*20);
+
+  for(uint16_t i = start; i < start+20; i++){
+	led_states[i] = 0;
+  }
+  
+  uint16_t L1 = start+addresses[input];
+  uint16_t L2 = start+addresses[input] + 10;
+
+  led_states[L1] = 1;
+  led_states[L2] = 1;
+  
+  show();
+}
+
 void Lixie::push_digit(byte number) {
   
   if (NUM_DIGITS > 1) {
@@ -210,6 +226,63 @@ void Lixie::push_digit(byte number) {
 
   led_states[L1] = 1;
   led_states[L2] = 1;
+  led_states[L2] = 1;
+  led_states[L2] = 1;
+}
+
+bool char_is_number(char input){
+  if(input == '0'){
+	return true;
+  }
+  else if(input == '1'){
+	return true;
+  }
+  else if(input == '2'){
+	return true;
+  }
+  else if(input == '3'){
+	return true;
+  }
+  else if(input == '4'){
+	return true;
+  }
+  else if(input == '5'){
+	return true;
+  }
+  else if(input == '6'){
+	return true;
+  }
+  else if(input == '7'){
+	return true;
+  }
+  else if(input == '8'){
+	return true;
+  }
+  else if(input == '9'){
+	return true;
+  }
+  else{
+	return false;
+  }
+}
+
+byte char_to_number(char input){
+	return byte(input-48); // convert ascii index to real number
+}
+
+void Lixie::write_string_f(char* input, byte len){
+  for(byte i = 0; i < len; i++){
+	if(char_is_number(input[i]) == true){
+	  push_digit(char_to_number(input[i]));
+	}
+  }
+  show();
+}
+
+void Lixie::write_char(char input, byte index){
+  if(char_is_number(input) == true){
+	write_digit(char_to_number(input),index);
+  }
 }
 
 void Lixie::print_binary() {
