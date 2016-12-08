@@ -10,26 +10,28 @@
 #include "Arduino.h"
 #include "FastLED.h"
 
-#define len( x )  ( sizeof( x ) / sizeof( *x ) )
-#define write_char(input) write_char_f(input,len(input)-1)
-
 class Lixie
 {
   public:
     Lixie();
     void begin();
 	void clear();
-	void set_color(byte r, byte g, byte b);
-	void set_color(byte r, byte g, byte b, int pos);
-	void set_padding(bool state);
-	void set_full_lights(bool lights);
-	void print_color();
+	void write_int(float input);
+	void push_digit(byte number);
+	void show();
 	void print_binary();
-	void brightness(byte val);
-	void write_char_f(char* input, byte input_length);
-	void write_int(uint64_t input);
-	void write(byte val, byte pos);
-	void update();
+	
+	void color_on_rgb(byte r, byte g, byte b);
+	void color_on_hsv(byte h, byte s, byte v);
+	
+	void color_on_rgb(byte r, byte g, byte b, byte index);
+	void color_on_hsv(byte h, byte s, byte v, byte index);
+	
+	void color_off_rgb(byte r, byte g, byte b);
+	void color_off_hsv(byte h, byte s, byte v);
+	
+	void color_off_rgb(byte r, byte g, byte b, byte index);
+	void color_off_hsv(byte h, byte s, byte v, byte index);
 };
 
 #endif

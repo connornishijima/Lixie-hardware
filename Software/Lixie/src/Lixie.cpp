@@ -10,174 +10,214 @@
 #define NUM_LEDS NUM_DIGITS * 20
 CRGB leds[NUM_LEDS];
 
-const byte digit_arrangement[10] = {4, 5, 3, 1, 9, 7, 6, 8, 0, 2};
-byte number_buf[NUM_DIGITS] = {};
-byte colors[NUM_DIGITS*3] = {};
-byte master_brightness = 100;
-byte led_states[NUM_DIGITS*20] = {};
-bool zero_padding = false;
-bool full_lights = true;
+byte led_states[NUM_LEDS];
+byte addresses[10] = {3, 4, 2, 0, 8, 6, 5, 7, 9, 1};
+byte colors[NUM_DIGITS][3];
+byte colors_off[NUM_DIGITS][3];
 
 Lixie::Lixie()
 {
 }
 
+void hsvToRgb(double h, double s, double v, byte rgb[]) {
+    double r2, g2, b2;
+
+    h/=255.0;
+    s/=255.0;
+    v/=255.0;
+
+    int i = int(h * 6);
+    double f = h * 6 - i;
+    double p = v * (1 - s);
+    double q = v * (1 - f * s);
+    double t = v * (1 - (1 - f) * s);
+
+    switch(i % 6){
+        case 0: r2 = v, g2 = t, b2 = p; break;
+        case 1: r2 = q, g2 = v, b2 = p; break;
+        case 2: r2 = p, g2 = v, b2 = t; break;
+        case 3: r2 = p, g2 = q, b2 = v; break;
+        case 4: r2 = t, g2 = p, b2 = v; break;
+        case 5: r2 = v, g2 = p, b2 = q; break;
+    }
+
+    rgb[0] = r2 * 255;
+    rgb[1] = g2 * 255;
+    rgb[2] = b2 * 255;
+}
+
 void Lixie::begin() {
-  FastLED.addLeds<NEOPIXEL, LED_PIN>(leds, NUM_LEDS);
-  for (uint16_t i = 0; i < NUM_DIGITS*3; i++) {
-    colors[i] = 255;
+  FastLED.addLeds<WS2811, DATA_PIN, GRB>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  FastLED.show();
+  for(byte i = 0; i < NUM_DIGITS; i++){
+	for(byte c = 0; c < 3; c++){
+	  colors[i][c] = 255;
+	  colors_off[i][c] = 0;
+	}
   }
   clear();
 }
 
 void Lixie::clear() {
-  for (uint16_t i = 0; i < NUM_DIGITS; i++) {
-    number_buf[i] = 0;
-  }
-  
   for (uint16_t i = 0; i < NUM_LEDS; i++) {
     led_states[i] = 0;
   }
 }
 
-void Lixie::set_padding(bool state) {
-  zero_padding = state;
-}
-
-void Lixie::set_full_lights(bool lights) {
-  full_lights = lights;
-}
-
-void Lixie::set_color(byte r, byte g, byte b){
-  for (uint16_t i = 0; i < NUM_DIGITS; i++) {
-    colors[(3*i)+0] = r;
-    colors[(3*i)+1] = g;
-    colors[(3*i)+2] = b;
-  }
-}
-
-void Lixie::set_color(byte r, byte g, byte b, int pos){
-  colors[(3*pos)+0] = r;
-  colors[(3*pos)+1] = g;
-  colors[(3*pos)+2] = b;
-}
-
-void Lixie::print_color(){
-  for (uint16_t i = 0; i < NUM_DIGITS*3; i++) {
-    Serial.print(colors[i]);
-	Serial.print(" ");
-  }
-  Serial.println();
-}
-
-void Lixie::print_binary(){
+void Lixie::show(){
   for(uint16_t i = 0; i < NUM_LEDS; i++){
-	if(i%20==0 && i != 0){
-	  Serial.print(" ");
-	}
-	Serial.print(led_states[i]);
-  }
-  Serial.println();
-}
-
-void Lixie::brightness(byte val){
-  master_brightness = val;
-}
-
-void Lixie::write_char_f(char* input, byte input_length) {
-  clear();
-  
-  if(zero_padding == true){
-	uint16_t enable = 4;
-	while(enable < NUM_LEDS){
-	  if(enable > (input_length*20)){
-		led_states[enable-1] = 1;
-	  }
-	  enable+=10;
-	}
-  }
-
-  for (uint16_t i = 0; i < input_length; i++) {
-    byte pos = input_length - i - 1;
-    byte val = input[i] - '0'; // This converts an ASCII char to a byte ('6' --> 6)
-    if (pos < NUM_DIGITS) {
-      number_buf[len(number_buf)-pos-1] = val;
-      byte L1 = digit_arrangement[val];
-      byte L2 = digit_arrangement[val] + 10;
-
-      led_states[L1 + (20 * pos) - 1] = 1;
-	  if(full_lights == true){
-		led_states[L2 + (20 * pos) - 1] = 1;
-	  }
-    }
-  }
-  
-  update();
-}
-
-void Lixie::update(){
-  for(uint16_t i = 0; i < NUM_LEDS; i++){
-    byte data_pos = 3*byte(i/20);
     if(led_states[i] == 1){
-      leds[i] = CRGB(colors[data_pos+0]*(master_brightness/100.0),colors[data_pos+1]*(master_brightness/100.0),colors[data_pos+2]*(master_brightness/100.0));
+	  byte r = colors[i/20][0];
+	  byte g = colors[i/20][1];
+	  byte b = colors[i/20][2];
+      leds[i] = CRGB(r,g,b);
     }
-    else if(led_states[i] == 0){
-      leds[i] = CRGB(0,0,0);
+    else{
+      byte r = colors_off[i/20][0];
+	  byte g = colors_off[i/20][1];
+	  byte b = colors_off[i/20][2];
+      leds[i] = CRGB(r,g,b);
     }
   }
- 
   FastLED.show();
 }
 
-byte num_len(uint64_t input){
-  byte len = 0;
-  if(input > 0){
-    len=1;
+// set all on color ------------------------------------
+void Lixie::color_on_rgb(byte r, byte g, byte b){
+  for(byte i = 0; i < NUM_DIGITS; i++){
+	colors[i][0] = r;
+	colors[i][1] = g;
+	colors[i][2] = b;
   }
-  if(input > 9){
-    len=2;
-  }
-  if(input > 99){
-    len=3;
-  }
-  if(input > 999){
-    len=4;
-  }
-  if(input > 9999){
-    len=5;
-  }
-  if(input > 99999){
-    len=6;
-  }
-  if(input > 999999){
-    len=7;
-  }
-  if(input > 9999999){
-    len=8;
-  }
-  if(input > 99999999){
-    len=9;
-  }
-  if(input > 999999999){
-    len=10;
-  }
-
-  return len;
 }
 
-void Lixie::write_int(uint64_t input){
-  uint16_t len = num_len(input)+1;
-  char tempBuf[len];
-  sprintf(tempBuf, "%lu", input);
-  write_char(tempBuf);
+void Lixie::color_on_hsv(byte h, byte s, byte v){
+  for(byte i = 0; i < NUM_DIGITS; i++){
+	byte rgb[3];
+	hsvToRgb(h,s,v,rgb);
+	colors[i][0] = rgb[0];
+	colors[i][1] = rgb[1];
+	colors[i][2] = rgb[2];
+  }
 }
 
-void Lixie::write(byte val, byte pos){
-  number_buf[len(number_buf)-pos-1] = val;
-  unsigned char data[NUM_DIGITS+1] = {};
+// set index on color ------------------------------------
+void Lixie::color_on_rgb(byte r, byte g, byte b, byte index){
+  colors[index][0] = r;
+  colors[index][1] = g;
+  colors[index][2] = b;
+}
+
+void Lixie::color_on_hsv(byte h, byte s, byte v, byte index){
+  byte rgb[3];
+  hsvToRgb(h,s,v,rgb);
+  colors[index][0] = rgb[0];
+  colors[index][1] = rgb[1];
+  colors[index][2] = rgb[2];
+}
+
+// set all off color -------------------------------------
+void Lixie::color_off_rgb(byte r, byte g, byte b){
+  for(byte i = 0; i < NUM_DIGITS; i++){
+	colors_off[i][0] = r;
+	colors_off[i][1] = g;
+	colors_off[i][2] = b;
+  }
+}
+
+void Lixie::color_off_hsv(byte h, byte s, byte v){
+  for(byte i = 0; i < NUM_DIGITS; i++){
+    byte rgb[3];
+	hsvToRgb(h,s,v,rgb);
+	colors_off[i][0] = rgb[0];
+	colors_off[i][1] = rgb[1];
+	colors_off[i][2] = rgb[2];
+  }
+}
+
+// set index color off -----------------------------------
+void Lixie::color_off_rgb(byte r, byte g, byte b, byte index){
+  colors_off[index][0] = r;
+  colors_off[index][1] = g;
+  colors_off[index][2] = b;
+}
+
+void Lixie::color_off_hsv(byte h, byte s, byte v, byte index){
+  byte rgb[3];
+  hsvToRgb(h,s,v,rgb);
+  colors_off[index][0] = rgb[0];
+  colors_off[index][1] = rgb[1];
+  colors_off[index][2] = rgb[2];
+}
+
+byte get_size(uint16_t input){
+  byte places = 0;
+  uint16_t multiply = 10;
+  bool done = false;
+
+  if(input >= 0){
+    places++;
+  }
+
+  while(done == false){
+    if(input >= multiply){
+      places++;
+      multiply *= 10;
+    }
+    else{
+      done = true;
+    }
+  }
+ 
+  return places;
+}
+
+void Lixie::write_int(float input){
+  clear();
+
+  byte places = get_size(input);
   
-  for(byte i = 0; i < len(number_buf); i++){
-	data[i] = char(number_buf[i]+48);
+  for(byte i = 0; i < places; i++){
+    while (input >= 10) {
+      input = input / 10.0;
+    }
+	
+    uint16_t input_ones = uint16_t(input);
+    push_digit(input_ones);
+    float input_next = float(input) - input_ones;
+    input = (input_next*10.0)+0.0005;
   }
-  write_char(data);
+
+  show();
+}
+
+void Lixie::push_digit(byte number) {
+  
+  if (NUM_DIGITS > 1) {
+    for (uint16_t i = NUM_LEDS - 1; i >= 20; i--) {
+      led_states[i] = led_states[i - 20];
+    }
+    for (uint16_t i = 0; i < 20; i++) {
+      led_states[i] = 0;
+    }
+  }
+  else {
+    clear();
+  }
+
+  uint16_t L1 = addresses[number];
+  uint16_t L2 = addresses[number] + 10;
+
+  led_states[L1] = 1;
+  led_states[L2] = 1;
+}
+
+void Lixie::print_binary() {
+  for (uint16_t i = 0; i < NUM_LEDS; i++) {
+    Serial.print(led_states[i]);
+    if ((i + 1) % 20 == 0 && i != 0) {
+      Serial.print('\t');
+    }
+  }
+  Serial.println();
 }
