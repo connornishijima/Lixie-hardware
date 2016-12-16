@@ -10894,7 +10894,7 @@
 <text x="61" y="30" size="1.016" layer="21" font="vector" ratio="13" align="bottom-right">Edge-lit Numeric Display
 based on WS2812B LEDs</text>
 <text x="62" y="39" size="1.27" layer="51" font="vector" ratio="11" align="bottom-right">Last Updated:
-December 11th, 2016</text>
+December 16th, 2016</text>
 <text x="13" y="10" size="0.8128" layer="21" font="vector" ratio="11" rot="R338" align="bottom-right">Hello, makers!</text>
 <text x="3" y="12.5" size="0.8128" layer="21" font="vector" ratio="11" rot="R338">This is the ugly side of the PCB.</text>
 </plain>
