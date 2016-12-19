@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4077,7 +4077,7 @@ at 27/07/2012 14:02:49</description>
 <plain>
 </plain>
 <instances>
-<instance part="JP1" gate="A" x="22.86" y="17.78" rot="R180"/>
+<instance part="JP1" gate="A" x="15.24" y="15.24" rot="R180"/>
 <instance part="JP2" gate="G$1" x="15.24" y="40.64" rot="R180"/>
 <instance part="U2" gate="A" x="111.76" y="27.94"/>
 <instance part="R3" gate="G$1" x="35.56" y="63.5" rot="R180"/>
@@ -4086,13 +4086,13 @@ at 27/07/2012 14:02:49</description>
 <busses>
 </busses>
 <nets>
-<net name="N$20" class="0">
+<net name="5V" class="0">
 <segment>
-<wire x1="25.4" y1="20.32" x2="30.48" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="3"/>
 <pinref part="JP2" gate="G$1" pin="VCC"/>
 <wire x1="22.86" y1="45.72" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="45.72" x2="30.48" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="45.72" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="U2" gate="A" pin="VCC"/>
 <pinref part="U2" gate="A" pin="UVCC"/>
 <wire x1="48.26" y1="45.72" x2="50.8" y2="45.72" width="0.1524" layer="91"/>
@@ -4105,31 +4105,27 @@ at 27/07/2012 14:02:49</description>
 <junction x="48.26" y="43.18"/>
 <wire x1="30.48" y1="45.72" x2="48.26" y2="45.72" width="0.1524" layer="91"/>
 <junction x="30.48" y="45.72"/>
+<label x="22.86" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
 <pinref part="JP2" gate="G$1" pin="GND"/>
 <wire x1="22.86" y1="35.56" x2="33.02" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="35.56" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="17.78" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
-<junction x="33.02" y="17.78"/>
 <pinref part="U2" gate="A" pin="UGND"/>
 <wire x1="50.8" y1="5.08" x2="48.26" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="U2" gate="A" pin="GND"/>
 <wire x1="50.8" y1="2.54" x2="48.26" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="2.54" x2="48.26" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="5.08" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="5.08" x2="48.26" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="12.7" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="17.78" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
 <junction x="48.26" y="5.08"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
 <pinref part="JP1" gate="A" pin="1"/>
-<pinref part="U2" gate="A" pin="PB5_(PCINT5)"/>
-<wire x1="50.8" y1="15.24" x2="25.4" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="12.7" x2="48.26" y2="12.7" width="0.1524" layer="91"/>
+<junction x="48.26" y="12.7"/>
+<label x="22.86" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -4166,6 +4162,14 @@ at 27/07/2012 14:02:49</description>
 <wire x1="30.48" y1="58.42" x2="27.94" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="58.42" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="40.64" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="DOUT" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="PB5_(PCINT5)"/>
+<wire x1="50.8" y1="15.24" x2="17.78" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="2"/>
+<label x="22.86" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
