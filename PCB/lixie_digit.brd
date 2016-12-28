@@ -10982,7 +10982,7 @@ grid 3.5 mm, diameter 8 mm</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="LaenPCBOrder">
+<designrules name="Elecrow_2-layer_PCB_eagle_rule">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -10990,29 +10990,35 @@ die meisten Anwendungen passen. Sollte ihre Platine
 besondere Anforderungen haben, treffen Sie die erforderlichen
 Einstellungen hier und speichern die Design Rules unter 
 einem neuen Namen ab.</description>
-<description language="en">&lt;b&gt;Laen's PCB Order Design Rules&lt;/b&gt;
+<description language="en">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
-Please make sure your boards conform to these design rules.</description>
+The default Design Rules have been set to cover
+a wide range of applications. Your particular design
+may have different requirements, so please make the
+necessary adjustments and save your customized
+design rules under a new name.</description>
+<description language="zh">&lt;b&gt;Elecrow PCB EAGLE Design Rules&lt;/b&gt;
+</description>
 <param name="layerSetup" value="(1*16)"/>
-<param name="mtCopper" value="0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm"/>
-<param name="mtIsolate" value="1.5011mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm"/>
+<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
+<param name="mtIsolate" value="1.6mm 1.2mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
 <param name="mdWireWire" value="6mil"/>
 <param name="mdWirePad" value="6mil"/>
 <param name="mdWireVia" value="6mil"/>
 <param name="mdPadPad" value="6mil"/>
 <param name="mdPadVia" value="6mil"/>
-<param name="mdViaVia" value="6mil"/>
-<param name="mdSmdPad" value="6mil"/>
-<param name="mdSmdVia" value="6mil"/>
-<param name="mdSmdSmd" value="6mil"/>
+<param name="mdViaVia" value="8mil"/>
+<param name="mdSmdPad" value="0mil"/>
+<param name="mdSmdVia" value="0mil"/>
+<param name="mdSmdSmd" value="0mil"/>
 <param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="15mil"/>
-<param name="mdDrill" value="6mil"/>
+<param name="mdCopperDimension" value="20mil"/>
+<param name="mdDrill" value="10mil"/>
 <param name="mdSmdStop" value="0mil"/>
 <param name="msWidth" value="6mil"/>
-<param name="msDrill" value="13mil"/>
-<param name="msMicroVia" value="13mil"/>
+<param name="msDrill" value="12mil"/>
+<param name="msMicroVia" value="12mil"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
@@ -11021,15 +11027,15 @@ Please make sure your boards conform to these design rules.</description>
 <param name="rvViaInner" value="0.25"/>
 <param name="rvMicroViaOuter" value="0.25"/>
 <param name="rvMicroViaInner" value="0.25"/>
-<param name="rlMinPadTop" value="7mil"/>
+<param name="rlMinPadTop" value="6mil"/>
 <param name="rlMaxPadTop" value="20mil"/>
-<param name="rlMinPadInner" value="7mil"/>
+<param name="rlMinPadInner" value="6mil"/>
 <param name="rlMaxPadInner" value="20mil"/>
-<param name="rlMinPadBottom" value="7mil"/>
+<param name="rlMinPadBottom" value="6mil"/>
 <param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="7mil"/>
+<param name="rlMinViaOuter" value="6mil"/>
 <param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="7mil"/>
+<param name="rlMinViaInner" value="6mil"/>
 <param name="rlMaxViaInner" value="20mil"/>
 <param name="rlMinMicroViaOuter" value="4mil"/>
 <param name="rlMaxMicroViaOuter" value="20mil"/>
@@ -11037,16 +11043,16 @@ Please make sure your boards conform to these design rules.</description>
 <param name="rlMaxMicroViaInner" value="20mil"/>
 <param name="psTop" value="-1"/>
 <param name="psBottom" value="-1"/>
-<param name="psFirst" value="-1"/>
+<param name="psFirst" value="0"/>
 <param name="psElongationLong" value="100"/>
 <param name="psElongationOffset" value="100"/>
 <param name="mvStopFrame" value="1"/>
 <param name="mvCreamFrame" value="0"/>
-<param name="mlMinStopFrame" value="3mil"/>
-<param name="mlMaxStopFrame" value="3mil"/>
+<param name="mlMinStopFrame" value="0mil"/>
+<param name="mlMaxStopFrame" value="0mil"/>
 <param name="mlMinCreamFrame" value="0mil"/>
 <param name="mlMaxCreamFrame" value="0mil"/>
-<param name="mlViaStopLimit" value="0mil"/>
+<param name="mlViaStopLimit" value="100mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
@@ -11057,7 +11063,7 @@ Please make sure your boards conform to these design rules.</description>
 <param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
 <param name="checkFont" value="1"/>
-<param name="checkRestrict" value="1"/>
+<param name="checkRestrict" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
@@ -11542,126 +11548,138 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 </signals>
 <errors>
-<approved hash="18,30,46f0aad16ad786f6"/>
-<approved hash="18,30,65e149c089c7a5e6"/>
-<approved hash="18,30,7e0693675361be00"/>
-<approved hash="18,30,afbf7cf76b554180"/>
-<approved hash="18,30,0e9f365e84c4fd7b"/>
-<approved hash="18,30,fbda1695538f475d"/>
-<approved hash="18,30,5da739c4f9c99daa"/>
-<approved hash="18,30,7eb75ad49ad9beba"/>
-<approved hash="18,30,16e57302b30fd6e8"/>
-<approved hash="18,30,e65b014b0a551562"/>
-<approved hash="18,30,6531025ec253a53c"/>
-<approved hash="18,30,94e700eb0b7564d6"/>
-<approved hash="18,30,0e8b6aa8aaa5ce86"/>
-<approved hash="18,30,2d9b09b8c9b5ed96"/>
-<approved hash="18,30,c775d2b66d4028ad"/>
-<approved hash="18,30,7a36a3abf28dd337"/>
-<approved hash="18,30,b589d6066cc05a51"/>
-<approved hash="18,30,0882a283f3a5a20b"/>
-<approved hash="18,30,b5f569d4a9df75fe"/>
-<approved hash="18,30,d6e58ac44acf16ee"/>
-<approved hash="18,30,eebb329af2912eb0"/>
-<approved hash="18,30,1f23f4688b3a981c"/>
-<approved hash="18,30,9d8f426e82655d84"/>
-<approved hash="18,30,6f37f7c88852e808"/>
-<approved hash="18,30,85215a009a0b452a"/>
-<approved hash="18,30,e631b910791b263a"/>
-<approved hash="18,30,9e0bae8535cfc59f"/>
-<approved hash="18,30,1b02cec113ab3e05"/>
-<approved hash="18,30,6b56cda110834ed1"/>
-<approved hash="18,30,ee1792dd174fb5cb"/>
-<approved hash="18,30,e5e1c182018725e4"/>
-<approved hash="18,30,345b984f6b593f66"/>
-<approved hash="18,30,b6cd92ee52eb76c8"/>
-<approved hash="18,30,677798876bd16c4a"/>
-<approved hash="18,30,dd77fa183a1d1d72"/>
-<approved hash="18,30,3e67d908190efe61"/>
-<approved hash="18,30,0c0b292ce929cc0e"/>
-<approved hash="18,30,ef1b0a3cca3a2f1d"/>
-<approved hash="18,30,46140a5d4d43d18c"/>
-<approved hash="18,30,3bd6faa913cf2adb"/>
-<approved hash="18,30,15780eb54fcb82a0"/>
-<approved hash="18,30,6832faa9138f793f"/>
-<approved hash="18,30,05b22a53eaaec54f"/>
-<approved hash="18,30,664209a3c9bea65f"/>
-<approved hash="18,30,1d1c323df2c0dde1"/>
-<approved hash="18,30,ac442f0f48d5307b"/>
-<approved hash="18,30,4e706311a3ec8e8d"/>
-<approved hash="18,30,ff282cf74b556117"/>
-<approved hash="18,30,76865aa79a5ab67b"/>
-<approved hash="18,30,15767957b94ad56b"/>
-<approved hash="18,30,2dc801e9c114ed35"/>
-<approved hash="18,30,9cb02c674bb5038f"/>
-<approved hash="18,30,d45ef97f398214a3"/>
-<approved hash="18,30,b7aeda8f1a9277b3"/>
-<approved hash="18,30,eb510693738967d6"/>
-<approved hash="18,30,5e14a65864c2ddf0"/>
-<approved hash="18,30,8809064373a9050e"/>
-<approved hash="18,30,3d8cab886742be98"/>
-<approved hash="18,30,0eb8a9f064c28ea4"/>
-<approved hash="18,30,b87d06ab7049357a"/>
-<approved hash="18,30,c65823bfe3840663"/>
-<approved hash="18,30,16c6f14b6a5575ff"/>
-<approved hash="18,30,de363a15fa2e1e0d"/>
-<approved hash="18,30,fd06d925193e3d1d"/>
-<approved hash="18,30,8d1a6979a9424d21"/>
-<approved hash="18,30,ae2a8a494a526e31"/>
-<approved hash="18,30,7c4e99ad5996bc75"/>
-<approved hash="18,30,5f7e7a9dba869f65"/>
-<approved hash="18,30,b58c52e392d875b7"/>
-<approved hash="18,30,647af0eb6b75044b"/>
-<approved hash="18,30,64f081d741eca4cb"/>
-<approved hash="18,30,b56ef10b6ad5d757"/>
-<approved hash="18,30,158887c88cdd6b90"/>
-<approved hash="18,30,e94b92b55253d04a"/>
-<approved hash="18,30,c51c86188cddbac4"/>
-<approved hash="18,30,3817929d53bb029e"/>
-<approved hash="18,30,4aa393b5529373a2"/>
-<approved hash="18,30,b7e082a88d5dc838"/>
-<approved hash="18,30,f5da8afb4afe35df"/>
-<approved hash="18,30,d6aae98b298e16af"/>
-<approved hash="18,30,9e40e26122645e45"/>
-<approved hash="18,30,4fb8a46b6b397887"/>
-<approved hash="18,30,ed74929552902d71"/>
-<approved hash="18,30,3faca7cb68510893"/>
-<approved hash="18,30,c50eb92f792a050b"/>
-<approved hash="18,30,e67eda5f1a5a267b"/>
-<approved hash="18,30,4e955e8d15c62501"/>
-<approved hash="18,30,eb9c3ecaf3a0de9b"/>
-<approved hash="18,30,9bc83daaf088ae4f"/>
-<approved hash="18,30,3e8962d537465555"/>
-<approved hash="18,30,1554f1373139d55a"/>
-<approved hash="18,30,e4cd484f8b59dff0"/>
-<approved hash="18,30,fcbe1999d9973cb0"/>
-<approved hash="18,30,df8dfaaa3aa71f80"/>
-<approved hash="18,30,2dc2caad0aa3edcc"/>
-<approved hash="18,30,0ef1299ee993cefc"/>
-<approved hash="18,30,4678a25b62558676"/>
-<approved hash="18,30,b7e148878bd18cdc"/>
-<approved hash="18,30,45e33eb26fcce23b"/>
-<approved hash="18,30,f8a86aaf738919a5"/>
-<approved hash="18,30,ab4c6aaf73c94a41"/>
-<approved hash="18,30,168f3a5a6d44b117"/>
-<approved hash="18,30,84d3a9f269f944d8"/>
-<approved hash="18,30,66238b024b09a628"/>
-<approved hash="18,30,553f7adebad59534"/>
-<approved hash="18,30,b7cf582e982577c4"/>
-<approved hash="18,30,7d455164916fbd4e"/>
-<approved hash="18,30,ad3d1c676bb52202"/>
-<approved hash="18,30,4d9162b0a2bb8d9a"/>
-<approved hash="18,30,9dc91f0f68d511f6"/>
-<approved hash="18,30,f99c764d13a7649b"/>
-<approved hash="18,30,8c199b86474c9f0d"/>
-<approved hash="18,30,c9e876a5104754ef"/>
-<approved hash="18,30,bf2d99fe44ccaf31"/>
-<approved hash="18,30,4dc56826a8238dc0"/>
-<approved hash="18,30,2ef54b168b13eef0"/>
-<approved hash="18,30,557b705cb059957e"/>
-<approved hash="18,30,e4e5a10b4ad5f6dc"/>
-<approved hash="18,30,f8c482af7249f1c5"/>
-<approved hash="18,30,440637d36cc54a1f"/>
+<approved hash="18,29,2ca4d09e9ee61eea"/>
+<approved hash="18,29,ad74b52b8b0cec08"/>
+<approved hash="18,29,b76530e78a18ecd3"/>
+<approved hash="18,29,d89f44fc84f9189a"/>
+<approved hash="18,29,bb8f21ece1e97b8a"/>
+<approved hash="18,29,ad0fe9cb0ad5b7f6"/>
+<approved hash="18,29,4aeb31aa2c0caeaa"/>
+<approved hash="18,29,a3313996f9936334"/>
+<approved hash="18,29,ac1479101cc10fe9"/>
+<approved hash="18,29,e442314edcf1c7c9"/>
+<approved hash="18,29,2db0f8b55ce44f35"/>
+<approved hash="18,29,75e2a0191cca175d"/>
+<approved hash="18,29,adf578c9dcb8ce70"/>
+<approved hash="18,29,a46d36e6041b4bf8"/>
+<approved hash="18,29,fc227fcf68d510dd"/>
+<approved hash="18,29,51a437c5f7c191a0"/>
+<approved hash="18,29,b2b41ad5dad172b0"/>
+<approved hash="18,29,972134ee0b53788c"/>
+<approved hash="18,29,ccd67ca76bb52329"/>
+<approved hash="18,29,8048e4e924ed404c"/>
+<approved hash="18,29,6358c9f909fda35c"/>
+<approved hash="18,29,83c73dae360c7380"/>
+<approved hash="18,29,b3b33d4635ec43f4"/>
+<approved hash="18,29,9ace316ff16b5aca"/>
+<approved hash="18,29,aa1a02bbc2bf6a1e"/>
+<approved hash="18,29,3f8dc0474bd14c70"/>
+<approved hash="18,29,891267fda7f1491e"/>
+<approved hash="18,29,ea0242ed82e12a0e"/>
+<approved hash="18,29,a46a4a62ff9d57d1"/>
+<approved hash="18,29,f7ae4822fb5d0435"/>
+<approved hash="18,29,586eb4c974c59862"/>
+<approved hash="18,29,3b7e91d951d5fb72"/>
+<approved hash="18,29,6ca1c08f4b591f5c"/>
+<approved hash="18,29,88e349a2dd84e4ae"/>
+<approved hash="18,29,db0749a2ddc4b74a"/>
+<approved hash="18,29,d2947977b97b1298"/>
+<approved hash="18,29,81b82a1bea1741b4"/>
+<approved hash="18,29,4fc6d70b68510839"/>
+<approved hash="18,29,17adef23985a1058"/>
+<approved hash="18,29,1194b4357430d191"/>
+<approved hash="18,29,3284a9256920f281"/>
+<approved hash="18,29,214087e147e4e145"/>
+<approved hash="18,29,02509af15af4c255"/>
+<approved hash="18,29,3fd2d4ab6b39782d"/>
+<approved hash="18,29,64a1ce6ba75a630c"/>
+<approved hash="18,29,0033d5ce35e41874"/>
+<approved hash="18,29,7067d6ae36cc68a0"/>
+<approved hash="18,29,1afe829f429adafb"/>
+<approved hash="18,29,69caf26b326ea9cf"/>
+<approved hash="18,29,a8ea1489d4726811"/>
+<approved hash="18,29,8b05f16631624b01"/>
+<approved hash="18,29,87ea601d8ae2cc5d"/>
+<approved hash="18,29,0a92b73177caca69"/>
+<approved hash="18,29,297d52de92dae979"/>
+<approved hash="18,29,0c6e982b6b75049f"/>
+<approved hash="18,29,242263dd8ea26fb5"/>
+<approved hash="18,29,dd7a99cb6ad5d783"/>
+<approved hash="18,29,59bee45d24a69945"/>
+<approved hash="18,29,7a5101b2c1b6ba55"/>
+<approved hash="18,29,576661dd8b621f09"/>
+<approved hash="18,29,7ed2998b6a55752b"/>
+<approved hash="18,29,cb3861862de07cf1"/>
+<approved hash="18,29,1a6461ae2c08ae25"/>
+<approved hash="18,29,b98c60ae2cc80dcd"/>
+<approved hash="18,29,31134b748b70f117"/>
+<approved hash="18,29,42c73a28fa2c82c3"/>
+<approved hash="18,29,93bbe91c291853bf"/>
+<approved hash="18,29,9ca1499dec4cff5c"/>
+<approved hash="18,29,34bde1b98c069736"/>
+<approved hash="18,29,5d05880e6c5f7f80"/>
+<approved hash="18,29,85685064ccb7c7d7"/>
+<approved hash="18,29,bffb6c370b552104"/>
+<approved hash="18,29,d2257784b7b81219"/>
+<approved hash="18,29,f1151ab4daa83109"/>
+<approved hash="18,29,a41ca91e86637a61"/>
+<approved hash="18,29,f4d8a6e6841b2b4d"/>
+<approved hash="18,29,a1110770c74c612d"/>
+<approved hash="18,29,82216a40aa5c423d"/>
+<approved hash="18,29,ec976fcf08d57068"/>
+<approved hash="18,29,dc636ca70bb5439c"/>
+<approved hash="18,29,70fdd45c1460b0c1"/>
+<approved hash="18,29,53cdb96c797093d1"/>
+<approved hash="18,29,c794a4ee8b531839"/>
+<approved hash="18,29,1372ad9616345335"/>
+<approved hash="18,29,2306ad7e15d46341"/>
+<approved hash="18,29,405eadae15f40199"/>
+<approved hash="18,29,9a8f722eb2325a93"/>
+<approved hash="18,29,c9e32302e31e09ff"/>
+<approved hash="18,29,aa5b41fa81e66a47"/>
+<approved hash="18,29,5c51f08f6b593fac"/>
+<approved hash="18,29,0f7df0476bd16c80"/>
+<approved hash="18,29,d9edb702770619e9"/>
+<approved hash="18,29,3a9d92725277fa98"/>
+<approved hash="18,29,075ab8261b5864c1"/>
+<approved hash="18,29,549eba661f983725"/>
+<approved hash="18,29,08916436a432c895"/>
+<approved hash="18,29,ebe1414681432be4"/>
+<approved hash="18,29,7818b9ae3d880455"/>
+<approved hash="18,29,2bfcb9ae3dc857b1"/>
+<approved hash="18,29,020ba9e869edc20e"/>
+<approved hash="18,29,5127fa843a819122"/>
+<approved hash="18,29,2121c480048be12a"/>
+<approved hash="18,29,4211f9b039bb821a"/>
+<approved hash="18,29,341fde61e75043b2"/>
+<approved hash="18,29,af6744ab4b395898"/>
+<approved hash="18,29,11f5f754375fd1fe"/>
+<approved hash="18,29,72c5ca640a6fb2ce"/>
+<approved hash="18,29,df73470b4851288c"/>
+<approved hash="18,29,4713ff29d85030e6"/>
+<approved hash="18,29,60dac6a9d6cb881d"/>
+<approved hash="18,29,108ec5c9d5e3f8c9"/>
+<approved hash="18,29,195fa2fe62f5d954"/>
+<approved hash="18,29,6a6bd20a1201aa60"/>
+<approved hash="18,29,9ce4082b4b752415"/>
+<approved hash="18,29,893414d7d4db4938"/>
+<approved hash="18,29,abc43027f02b6bc8"/>
+<approved hash="18,29,871311228b9d3f7c"/>
+<approved hash="18,29,da1847bb87b71a14"/>
+<approved hash="18,29,f8e8634ba34738e4"/>
+<approved hash="18,29,f45713228e5d4fc0"/>
+<approved hash="18,29,ee58098b4a5555a1"/>
+<approved hash="18,29,bb4d118e2de87c84"/>
+<approved hash="18,29,c9f910a62cc00db8"/>
+<approved hash="18,29,93520bbdcbb1535e"/>
+<approved hash="18,29,e0867ae1baed208a"/>
+<approved hash="18,29,ce741c376b55408b"/>
+<approved hash="18,29,83aa260be60f43ae"/>
+<approved hash="18,29,a09acb3b0b3f609e"/>
+<approved hash="18,29,9597991a86675beb"/>
+<approved hash="18,29,71d59d9235c82012"/>
+<approved hash="18,29,986cf28d32895868"/>
+<approved hash="18,29,55156375b3750290"/>
 </errors>
 </board>
 </drawing>
