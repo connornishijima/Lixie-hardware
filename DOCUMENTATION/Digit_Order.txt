@@ -1,0 +1,1 @@
+From front to back: 6, 5, 7, 4, 8, 3, 9, 2, 0, 1
