@@ -5,6 +5,12 @@
 This repository contains all of the files necessary to build your own Lixie displays. This includes the EAGLE files for the boards, the .eps layouts for the lasercut parts, and CAD files if you want to design accessories. Documentation is also included.
 
 ----------
+# Contents
+- [Bill of Materials](#bill-of-materials)
+- [Contributing](#contributing)
+- [License and credits](#license-and-credits)
+
+----------
 # Bill of Materials
 
 ### Lasercut
