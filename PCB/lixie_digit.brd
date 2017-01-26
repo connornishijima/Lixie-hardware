@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11230,9 +11230,8 @@ design rules under a new name.</description>
 <element name="JP2" library="adafruit" package="1X03" value="" x="2" y="18" smashed="yes" rot="R90">
 <attribute name="VALUE" x="5.175" y="14.19" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C1" library="adafruit" package="E3,5-8" value="" x="5" y="5" smashed="yes">
-<attribute name="NAME" x="9.302" y="1.794" size="1.27" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="2.714" y="1.952" size="1.27" layer="27" ratio="10"/>
+<element name="C1" library="adafruit" package="E3,5-8" value="1000 µF" x="5" y="5" smashed="yes">
+<attribute name="VALUE" x="5.214" y="2.952" size="1.016" layer="27" ratio="10" align="center"/>
 </element>
 </elements>
 <signals>
@@ -11380,7 +11379,7 @@ design rules under a new name.</description>
 <wire x1="11.95" y1="14.35" x2="14.35" y2="16.75" width="0.6096" layer="1"/>
 <wire x1="14.35" y1="16.75" x2="14.65" y2="16.75" width="0.6096" layer="1"/>
 </signal>
-<signal name="N$20">
+<signal name="+5V">
 <contactref element="LED1" pad="1-VDD"/>
 <contactref element="LED2" pad="1-VDD"/>
 <contactref element="LED3" pad="1-VDD"/>
@@ -11531,13 +11530,13 @@ design rules under a new name.</description>
 <via x="14" y="1.5" extent="1-16" drill="0.6"/>
 <via x="48.5" y="1.5" extent="1-16" drill="0.6"/>
 </signal>
-<signal name="N$23">
+<signal name="DIN">
 <contactref element="LED1" pad="4-DIN"/>
 <contactref element="JP1" pad="1"/>
 <wire x1="60.5" y1="20.54" x2="57.64" y2="20.54" width="0.6096" layer="1"/>
 <wire x1="57.64" y1="20.54" x2="53.95" y2="16.85" width="0.6096" layer="1"/>
 </signal>
-<signal name="N$24">
+<signal name="DOUT">
 <contactref element="JP2" pad="3"/>
 <contactref element="LED20" pad="2-DOUT"/>
 <wire x1="2" y1="20.54" x2="3" y2="19.5" width="0.6096" layer="1"/>
